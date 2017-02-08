@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  angular:
+   image: angular2
+   restart: always
+   environment:
+    - APP_DEBUG=true
+   links:
+    - golang
+   volumes:
+    - /root/aong/angular/project:/project
+   ports:
+    - 4200:4200
+    - 49152:49152
+    - 4201:80
+  golang:
+   image: golang-oracle10
+   restart: always
+   ports:
+    - 4204:80
